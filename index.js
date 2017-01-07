@@ -2,8 +2,8 @@ var socket = io();
 var category = "chat";
 
 function init() {
-	eas.init();
-	eas.event.init();
+	eamessenger.init();
+	eamessenger.event.init();
 	inits.chat();
 }
 
@@ -18,8 +18,8 @@ function down() {
 	}
 }
 
-var eas;
-eas = {
+var eamessenger;
+eamessenger = {
 	init: function() {
 		$('<div class="body" ></div>').appendTo($('.background'));
 			$('<div class="bodyleft" id="msgbox"></div>').appendTo($('.body'));
@@ -39,7 +39,8 @@ eas = {
 		$('<div id="initialize" value="초기화" class="initialize" onClick="click_initialize();" />').appendTo($('body'));
 		$('<div id="pushon" value="푸시켜기" class="pushon" onClick="click_pushon();" />').appendTo($('body'));
 		$('<div id="pushoff" value="푸시끄기" class="pushoff" onClick="click_pushoff();" />').appendTo($('body'));
-		$('<a href="http://eaea.herokuapp.com/" id="home" class="home">챗홈</a>').appendTo($('body')); 
+		$('<a href="http://eamessenger-eaea2121.c9users.io" id="home" class="home">챗홈</a>').appendTo($('body'));
+		$('<a href="https://ide.c9.io/eaea2121/eamessenger" id="some" class="some">셋홈</a>').appendTo($('body'));
 		$('<div id="backon" value="배경켜기" class="backon" onClick="click_backon();" />').appendTo($('body'));
 		$('<div id="backoff" value="배경끄기" class="backoff" onClick="click_backoff();" />').appendTo($('body'));
 		$('<div id="backoff" value="배경끄기" class="backoff" onClick="click_backoff();" />').appendTo($('body'));
@@ -88,15 +89,15 @@ function click_initialize() {
 function dropfile() {
 
 }
-eas.event = {
+eamessenger.event = {
 	init: function() {
 		var downright = $('.downright');
 		$(downright).bind('click', function() {
-			eas.event.onClick(downright);
+			eamessenger.event.onClick(downright);
 		});
 		var headright = $('.headright');
 		$(headright).bind('click', function() {
-			eas.event.onClick(headright);
+			eamessenger.event.onClick(headright);
 		});
 	},
 	onClick: function(o) {
@@ -183,7 +184,6 @@ socket.on('setname', function(msg) {
 	// 현황판 수정
 	userlistadd(msg.name, msg.socket);
 });
-
 // 메시지를 전달받은 경우
 socket.on('message', function(message) {
 	// 대화명과 메시지 채팅창에 표시
@@ -207,7 +207,7 @@ socket.on('message', function(message) {
 				body: '[' + (new Date().format("hh:mm")) + '] ' + message[0] + ' : ' + message[1]
 			});
 			notification.onclick = function() {
-				window.open("http://eas-eaea2121.c9users.io");
+				window.open("http://eamessenger-eaea2121.c9users.io");
 			};
 			document.getElementById("katalk").play();
 		}
@@ -226,7 +226,7 @@ function click_pushoff() {
 			body: '푸시 알림 껐어요 ㅎㅎ'
 		});
 		notification.onclick = function() {
-			window.open("http://eas-eaea2121.c9users.io");
+			window.open("http://eamessenger-eaea2121.c9users.io");
 		};
 	}
 }
@@ -303,18 +303,18 @@ userlistadd = function(name, socket) {
 		if (document.getElementById(socket) != null) {
 			document.getElementById(socket).remove();
 		}
-		console.log('퇴갤'+socket)
+		//alert('나갔다')
 	}
 	else if (document.getElementById(socket) == null) { // 기존에 없는 경우
 		//console.log(socket+' come')
 		$('<ul id="' + socket + '">' + name + '</ul>').appendTo($('.userlist'));
-		console.log('뉴비'+socket)
+		//alert('기존에 없다')
 	}
 	else {
-		console.log('변경'+socket)
+		//alert('이미 있다')
 		//console.log(socket+' change : '+document.getElementsByClassName(socket))
-		//document.getElementsByClassName(socket).innerText = name;
-		$('ul#' + socket).text(name);
+		//document.getElementsByClassName(socket).value = name;
+		$("#" + socket).text(name);
 	}
 }
 
