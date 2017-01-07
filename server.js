@@ -5,21 +5,18 @@ var io = require('socket.io')(http);
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
-
-app.get('/.1', function(req, res){
-    res.sendFile(__dirname + '/index.1.html');
-});
-
+ 
 app.get('/index.js', function(req, res){
     res.sendFile(__dirname + '/index.js');
 });
-
+ 
 app.get('/index.css', function(req, res){
     res.sendFile(__dirname + '/index.css');
 });
 
 ip = function (sockets) {
-    return sockets.request.connection.remoteAddress.substring(7,sockets.request.connection.remoteAddress.length);
+    return sockets.id;
+    //return sockets.request.connection.remoteAddress.substring(7,sockets.request.connection.remoteAddress.length);
 }
 
 function getUserIP(req){
