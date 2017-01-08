@@ -15,8 +15,10 @@ app.get('/index.css', function(req, res){
 });
 
 ip = function (sockets) {
+    /*
     return sockets.id;
-    //return sockets.request.connection.remoteAddress.substring(7,sockets.request.connection.remoteAddress.length);
+    /**/
+    return sockets.request.connection.remoteAddress.substring(7,sockets.request.connection.remoteAddress.length).replace('.','_').replace('.','_').replace('.','_');
 }
 
 function getUserIP(req){
