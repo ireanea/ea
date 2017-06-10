@@ -1,6 +1,18 @@
 @import url('http://fonts.googleapis.com/earlyaccess/nanumpenscript.css');
 @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 @import url('http://fonts.googleapis.com/earlyaccess/hanna.css');
+@font-face{
+    font-family:ib;
+    weight:300;
+    src:url(./ib.eot);
+    src:local('※'), url(./ib.woff) format('woff');
+}
+@font-face{
+    font-family:ib;
+    weight:600;
+    src:url(./ib.eot);
+    src:local('※'), url(./ib.woff) format('woff');
+}
 @font-face {
 	font-family: 'Hanna';
 	font-style: normal;
@@ -35,7 +47,7 @@
 }
 
 * {
-	font-family: 'SungDongMyungjo', serif;
+	font-family: ib, serif;
 	margin: 0px;
 	padding: 0px;
 	-webkit-box-sizing: border-box;
