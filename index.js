@@ -44,9 +44,14 @@ eas = {
 		$('<div id="backon" value="배경켜기" class="backon" onClick="click_backon();" />').appendTo($('body'));
 		$('<div id="backoff" value="배경끄기" class="backoff" onClick="click_backoff();" />').appendTo($('body'));
 		$('<div id="backoff" value="배경끄기" class="backoff" onClick="click_backoff();" />').appendTo($('body'));
+		// 이전에 있던 메시지 로드
 		if(localStorage.getItem('messages')!=null && localStorage.getItem('messages')!="null")
 	   	{
 			document.getElementById('message').innerHTML = localStorage.getItem('messages');
+			
+			// 스크롤 맨아래로 내리기
+			if (document.getElementById("message") != null)
+				document.getElementById("msgbox").scrollTop = document.getElementById("message").scrollHeight;
 	   	}
 	}
 };
