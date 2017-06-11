@@ -44,7 +44,7 @@ eas = {
 		$('<div id="backon" value="배경켜기" class="backon" onClick="click_backon();" />').appendTo($('body'));
 		$('<div id="backoff" value="배경끄기" class="backoff" onClick="click_backoff();" />').appendTo($('body'));
 		$('<div id="backoff" value="배경끄기" class="backoff" onClick="click_backoff();" />').appendTo($('body'));
-		if(localStorage.getItem('messages')!=null)
+		if(localStorage.getItem('messages')!=null && localStorage.getItem('messages')!="null")
 	   	{
 			document.getElementById('message').innerHTML = localStorage.getItem('messages');
 	   	}
