@@ -44,6 +44,10 @@ eas = {
 		$('<div id="backon" value="배경켜기" class="backon" onClick="click_backon();" />').appendTo($('body'));
 		$('<div id="backoff" value="배경끄기" class="backoff" onClick="click_backoff();" />').appendTo($('body'));
 		$('<div id="backoff" value="배경끄기" class="backoff" onClick="click_backoff();" />').appendTo($('body'));
+		if(localStorage.getItem('messages')!=null)
+	   	{
+			document.getElementById('message').innerHTML = localStorage.getItem('messages');
+	   	}
 	}
 };
 
@@ -104,6 +108,7 @@ eas.event = {
 		if ($(o).hasClass('hd')) {}
 		if ($(o).hasClass('headright')) {
 			$('#message').empty();
+			localStorage.setItem('messages',null);
 		}
 		if ($(o).hasClass('downright')) {
 			push.down();
@@ -213,7 +218,9 @@ socket.on('message', function(message) {
 			document.getElementById("katalk").play();
 		}
 	}
-
+	
+	// 받은메시지 전체 저장
+	localStorage.setItem('messages',document.getElementById('message').innerHTML);
 });
 
 // 푸시알림 사용자 설정
