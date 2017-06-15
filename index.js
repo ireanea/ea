@@ -1,6 +1,7 @@
 var socket = io();
 var category = "chat";
-
+var iconhref = location.href+'peach.jpg';
+var backhref = location.href+'milkyway.jpg';
 function init() {
 	eas.init();
 	eas.event.init();
@@ -214,11 +215,11 @@ socket.on('message', function(message) {
 			Notification.requestPermission();
 		else {
 			var notification = new Notification('Notification title', {
-				icon: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWcuW9ztHaAEmdfmuOuJ9xqq8SIbXIJjWFX7Afb2i_RxGLO2ZbUg',
+				icon: iconhref,
 				body: '[' + (new Date().format("hh:mm")) + '] ' + message[0] + ' : ' + message[1]
 			});
 			notification.onclick = function() {
-				window.open("http://eas-eaea2121.c9users.io");
+				window.open(location.href);
 			};
 			document.getElementById("katalk").play();
 		}
@@ -235,11 +236,11 @@ function click_pushoff() {
 		Notification.requestPermission();
 	else {
 		var notification = new Notification('푸시 알림 끄기', {
-			icon: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWcuW9ztHaAEmdfmuOuJ9xqq8SIbXIJjWFX7Afb2i_RxGLO2ZbUg',
+			icon: iconhref,
 			body: '푸시 알림 껐어요 ㅎㅎ'
 		});
 		notification.onclick = function() {
-			window.open("http://eas-eaea2121.c9users.io");
+			window.open(location.href);
 		};
 	}
 }
@@ -250,9 +251,12 @@ function click_pushon() {
 		Notification.requestPermission();
 	else {
 		var notification = new Notification('푸시 알림 켜기', {
-			icon: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWcuW9ztHaAEmdfmuOuJ9xqq8SIbXIJjWFX7Afb2i_RxGLO2ZbUg',
+			icon: iconhref,
 			body: '푸시 알림 켰어요 ㅎㅎ'
 		});
+		notification.onclick = function() {
+			window.open(location.href);
+		};
 	}
 }
 
@@ -263,7 +267,7 @@ function click_backoff() {
 
 function click_backon() {
 	localStorage.setItem('backon', 'true');
-	$('body').css('background-image', 'url("https://i.ytimg.com/vi/ttz4Sr0tZFg/maxresdefault.jpg")');
+	$('body').css('background-image', 'url('+backhref+')');
 }
 
 // 이쪽이에요 ㅎㅎ
