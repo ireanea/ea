@@ -42,6 +42,10 @@ app.get('/milkyway.jpg', function(req, res){
     res.sendFile(__dirname + '/milkyway.jpg');
 });
  
+app.get('/katalk.mp3', function(req, res){
+    res.sendFile(__dirname + '/katalk.mp3');
+});
+ 
 ip = function (sockets) {
     /*
     return sockets.id;
