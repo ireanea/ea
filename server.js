@@ -10,6 +10,10 @@ app.get('/index.js', function(req, res){
     res.sendFile(__dirname + '/index.js');
 });
  
+app.get('/index.css', function(req, res){
+    res.sendFile(__dirname + '/index.css');
+});
+
 app.get('/ib.woff', function(req, res){
     res.sendFile(__dirname + '/ib.woff');
 });
@@ -18,10 +22,14 @@ app.get('/ib.eot', function(req, res){
     res.sendFile(__dirname + '/ib.eot');
 });
  
-app.get('/index.css', function(req, res){
-    res.sendFile(__dirname + '/index.css');
+app.get('/peach.jpg', function(req, res){
+    res.sendFile(__dirname + '/peach.jpg');
 });
-
+ 
+app.get('/milkyway.jpg', function(req, res){
+    res.sendFile(__dirname + '/milkyway.jpg');
+});
+ 
 ip = function (sockets) {
     /*
     return sockets.id;
