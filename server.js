@@ -14,6 +14,10 @@ app.get('/index.css', function(req, res){
     res.sendFile(__dirname + '/index.css');
 });
 
+app.get('/fastclick.js', function(req, res){
+    res.sendFile(__dirname + '/fastclick.js');
+});
+
 app.get('/ib.woff', function(req, res){
     res.sendFile(__dirname + '/ib.woff');
 });
