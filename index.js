@@ -320,15 +320,15 @@ userlistadd = function(name, socket) {
 		if (document.getElementById(socket) != null) {
 			document.getElementById(socket).remove();
 		}
-		console.log('퇴갤'+socket)
+		console.log('bi'+socket)
 	}
 	else if (document.getElementById(socket) == null) { // 기존에 없는 경우
 		//console.log(socket+' come')
 		$('<ul id="' + socket + '">' + name + '</ul>').appendTo($('.userlist'));
-		console.log('뉴비'+socket)
+		console.log('hi'+socket)
 	}
 	else {
-		console.log('변경'+socket)
+		console.log('ri'+socket)
 		//console.log(socket+' change : '+document.getElementsByClassName(socket))
 		//document.getElementsByClassName(socket).innerText = name;
 		$('ul#' + socket).text(name);
