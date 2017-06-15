@@ -14,6 +14,14 @@ app.get('/index.css', function(req, res){
     res.sendFile(__dirname + '/index.css');
 });
 
+app.get('/socket.io-1.2.0.js', function(req, res){
+    res.sendFile(__dirname + '/socket.io-1.2.0.js');
+});
+
+app.get('/jquery-1.11.1.js', function(req, res){
+    res.sendFile(__dirname + '/jquery-1.11.1.js');
+});
+
 app.get('/fastclick.js', function(req, res){
     res.sendFile(__dirname + '/fastclick.js');
 });
